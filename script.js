@@ -55,11 +55,20 @@ async function createExpense() {
   const date = document.getElementById("date").value;
   const userId = document.getElementById("expenseUserId").value;
 
+  // Construct the JSON to match what the backend expects
+  const expenseData = {
+    category,
+    amount,
+    date,
+    user: { id: parseInt(userId) } // wrap userId in an object
+  };
+
   const res = await fetch(`${baseUrl}/expenses`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ category, amount, date, userId })
+    body: JSON.stringify(expenseData)
   });
 
   showResult(await res.json());
 }
+
