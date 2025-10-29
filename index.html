@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Expense Tracker</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <h1>Expense Tracker</h1>
+
+  <section>
+    <h2>User Section</h2>
+
+    <div class="actions">
+      <button onclick="getAllUsers()">Get All Users</button>
+
+      <div>
+        <input id="userId" placeholder="User ID" />
+        <button onclick="getUserById()">Get User by ID</button>
+      </div>
+
+      <div>
+        <input id="userName" placeholder="Name" />
+        <input id="userEmail" placeholder="Email" />
+        <button onclick="createUser()">Create User</button>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Expenses Section</h2>
+
+    <div class="actions">
+      <button onclick="getAllExpenses()">Get All Expenses</button>
+
+      <div>
+        <input id="expenseId" placeholder="Expense ID" />
+        <button onclick="getExpenseById()">Get Expense by ID</button>
+      </div>
+
+      <div>
+        <input id="userExpensesId" placeholder="User ID" />
+        <button onclick="getExpensesByUser()">Get Expenses by User</button>
+      </div>
+
+      <div>
+        <input id="category" placeholder="Category" />
+        <input id="amount" type="number" placeholder="Amount" />
+        <input id="date" type="date" />
+        <input id="expenseUserId" placeholder="User ID" />
+        <button onclick="createExpense()">Create Expense</button>
+      </div>
+    </div>
+  </section>
+
+  <pre id="output"></pre>
+
+  <script src="script.js"></script>
+</body>
+</html>
+
