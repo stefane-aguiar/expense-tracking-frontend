@@ -6,7 +6,7 @@ function showResult(data) {
   output.textContent = JSON.stringify(data, null, 2);
 }
 
-// USERS
+// ================= USERS =================
 async function getAllUsers() {
   const res = await fetch(`${baseUrl}/users`);
   showResult(await res.json());
@@ -31,7 +31,7 @@ async function createUser() {
   showResult(await res.json());
 }
 
-// EXPENSES
+// ================= EXPENSES =================
 async function getAllExpenses() {
   const res = await fetch(`${baseUrl}/expenses`);
   showResult(await res.json());
@@ -52,10 +52,17 @@ async function getExpensesByUser() {
 async function createExpense() {
   const category = document.getElementById("category").value;
   const amount = parseFloat(document.getElementById("amount").value);
-  const date = document.getElementById("date").value;
+  const rawDate = document.getElementById("date").value; // could be DD/MM/YYYY
   const userId = document.getElementById("expenseUserId").value;
 
-  // Construct the JSON to match what the backend expects
+  // Convert date to YYYY-MM-DD if it's in DD/MM/YYYY
+  let date = rawDate;
+  if (rawDate.includes("/")) {
+    const parts = rawDate.split("/"); // ["dd","MM","yyyy"]
+    date = `${parts[2]}-${parts[1]}-${parts[0]}`; // "yyyy-MM-dd"
+  }
+
+  // Construct JSON matching backend expectation
   const expenseData = {
     category,
     amount,
