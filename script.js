@@ -70,6 +70,7 @@ async function createExpense() {
     user: { id: parseInt(userId) } // wrap userId in an object
   };
 
+  console.log("Expense data being sent:", expenseData);
   const res = await fetch(`${baseUrl}/expenses`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
