@@ -8,91 +8,98 @@
 <body>
   <h1>Expense Tracker</h1>
 
-  <!-- ============ USERS SECTION ============ -->
+  <!-- ================= USERS ================= -->
   <section>
     <h2>User Section</h2>
-    <div class="section-grid">
-      
-      <!-- GET -->
+
+    <div class="subsections">
+      <!-- GET USERS -->
       <div class="subsection">
-        <h3>GET</h3>
+        <h3>Get Users</h3>
         <button onclick="getAllUsers()">Get All Users</button>
-        <input id="userId" placeholder="User ID" />
-        <button onclick="getUserById()">Get User by ID</button>
+        <div>
+          <input id="userId" placeholder="User ID" />
+          <button onclick="getUserById()">Get User by ID</button>
+        </div>
       </div>
 
-      <!-- CREATE -->
+      <!-- CREATE USER -->
       <div class="subsection">
-        <h3>CREATE</h3>
+        <h3>Create User</h3>
         <input id="userName" placeholder="Name" />
         <input id="userEmail" placeholder="Email" />
-        <button onclick="createUser()">Create User</button>
+        <button onclick="createUser()">Create</button>
       </div>
 
-      <!-- UPDATE -->
+      <!-- UPDATE USER -->
       <div class="subsection">
-        <h3>UPDATE</h3>
+        <h3>Update User</h3>
         <input id="updateUserId" placeholder="User ID" />
         <input id="updateUserName" placeholder="New Name" />
         <input id="updateUserEmail" placeholder="New Email" />
-        <button onclick="updateUser()">Update User</button>
+        <button onclick="updateUser()">Update</button>
       </div>
 
-      <!-- DELETE -->
+      <!-- DELETE USER -->
       <div class="subsection">
-        <h3>DELETE</h3>
+        <h3>Delete User</h3>
         <input id="deleteUserId" placeholder="User ID" />
-        <button onclick="deleteUser()">Delete User</button>
+        <button onclick="deleteUser()">Delete</button>
       </div>
     </div>
   </section>
 
-  <!-- ============ EXPENSES SECTION ============ -->
+  <!-- ================= EXPENSES ================= -->
   <section>
     <h2>Expenses Section</h2>
-    <div class="section-grid">
 
-      <!-- GET -->
+    <div class="subsections">
+      <!-- GET EXPENSES -->
       <div class="subsection">
-        <h3>GET</h3>
-        <button onclick="getAllExpenses()">Get All Expenses</button>
-        <input id="expenseId" placeholder="Expense ID" />
-        <button onclick="getExpenseById()">Get Expense by ID</button>
-        <input id="userExpensesId" placeholder="User ID" />
-        <button onclick="getExpensesByUser()">Get Expenses by User</button>
+        <h3>Get Expenses</h3>
+        <button onclick="getAllExpenses()">Get All</button>
+        <div>
+          <input id="expenseId" placeholder="Expense ID" />
+          <button onclick="getExpenseById()">By ID</button>
+        </div>
+        <div>
+          <input id="userExpensesId" placeholder="User ID" />
+          <button onclick="getExpensesByUser()">By User</button>
+        </div>
       </div>
 
-      <!-- CREATE -->
+      <!-- CREATE EXPENSE -->
       <div class="subsection">
-        <h3>CREATE</h3>
+        <h3>Create Expense</h3>
         <input id="category" placeholder="Category" />
         <input id="amount" type="number" placeholder="Amount" />
         <input id="date" type="date" />
         <input id="expenseUserId" placeholder="User ID" />
-        <button onclick="createExpense()">Create Expense</button>
+        <button onclick="createExpense()">Create</button>
       </div>
 
-      <!-- UPDATE -->
+      <!-- UPDATE EXPENSE -->
       <div class="subsection">
-        <h3>UPDATE</h3>
+        <h3>Update Expense</h3>
         <input id="updateExpenseId" placeholder="Expense ID" />
         <input id="updateCategory" placeholder="New Category" />
         <input id="updateAmount" type="number" placeholder="New Amount" />
         <input id="updateDate" type="date" />
-        <input id="updateUserIdExpense" placeholder="User ID" />
-        <button onclick="updateExpense()">Update Expense</button>
+        <input id="updateExpenseUserId" placeholder="User ID" />
+        <button onclick="updateExpense()">Update</button>
       </div>
 
-      <!-- DELETE -->
+      <!-- DELETE EXPENSE -->
       <div class="subsection">
-        <h3>DELETE</h3>
+        <h3>Delete Expense</h3>
         <input id="deleteExpenseId" placeholder="Expense ID" />
-        <button onclick="deleteExpense()">Delete Expense</button>
+        <button onclick="deleteExpense()">Delete</button>
       </div>
     </div>
   </section>
 
   <pre id="output"></pre>
+
   <script src="script.js"></script>
 </body>
 </html>
