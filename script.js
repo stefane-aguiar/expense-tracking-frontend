@@ -34,19 +34,18 @@ async function createUser() {
   showResult(await res.json());
 }
 
-// UPDATE user (PATCH - permite atualização parcial)
+// UPDATE user
 async function updateUser() {
   const id = document.getElementById("updateUserId").value;
   const name = document.getElementById("updateUserName").value;
   const email = document.getElementById("updateUserEmail").value;
 
-  // Monta objeto apenas com campos preenchidos
   const userData = {};
   if (name) userData.name = name;
   if (email) userData.email = email;
 
-  const res = await fetch(`${baseUrl}/users/${id}`, {
-    method: "PATCH",  // ← MUDANÇA: PUT → PATCH
+  const res = await fetch(`${baseUrl}/users/${id}`, {  // ← Parênteses AQUI
+    method: "PATCH",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(userData),
   });
@@ -120,7 +119,7 @@ async function createExpense() {
   showResult(await res.json());
 }
 
-// UPDATE expense (PATCH - permite atualização parcial)
+// UPDATE expense
 async function updateExpense() {
   const id = document.getElementById("updateExpenseId").value;
   const category = document.getElementById("updateCategory").value;
@@ -128,22 +127,20 @@ async function updateExpense() {
   const rawDate = document.getElementById("updateDate").value;
   const userId = document.getElementById("updateExpenseUserId").value;
 
-  // Formata data se necessário
   let date = rawDate;
   if (rawDate && rawDate.includes("/")) {
     const parts = rawDate.split("/");
     date = `${parts[2]}-${parts[1]}-${parts[0]}`;
   }
 
-  // Monta objeto apenas com campos preenchidos
   const expenseData = {};
   if (category) expenseData.category = category;
   if (amount) expenseData.amount = parseFloat(amount);
   if (date) expenseData.date = date;
   if (userId) expenseData.user = { id: parseInt(userId) };
 
-  const res = await fetch(`${baseUrl}/expenses/${id}`, {
-    method: "PATCH",  // ← MUDANÇA: PUT → PATCH
+  const res = await fetch(`${baseUrl}/expenses/${id}`, {  // ← Parênteses AQUI
+    method: "PATCH",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(expenseData),
   });
