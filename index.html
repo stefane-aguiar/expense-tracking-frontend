@@ -33,11 +33,12 @@
 
       <!-- UPDATE USER -->
       <div class="subsection">
-        <h3>Update User</h3>
-        <input id="updateUserId" placeholder="User ID" />
-        <input id="updateUserName" placeholder="New Name" />
-        <input id="updateUserEmail" placeholder="New Email" />
+        <h3>Update User (Partial)</h3>
+        <input id="updateUserId" placeholder="User ID" required />
+        <input id="updateUserName" placeholder="New Name (optional)" />
+        <input id="updateUserEmail" placeholder="New Email (optional)" />
         <button onclick="updateUser()">Update</button>
+        <p class="hint">Leave fields empty to keep current values</p>
       </div>
 
       <!-- DELETE USER -->
@@ -80,13 +81,14 @@
 
       <!-- UPDATE EXPENSE -->
       <div class="subsection">
-        <h3>Update Expense</h3>
-        <input id="updateExpenseId" placeholder="Expense ID" />
-        <input id="updateCategory" placeholder="New Category" />
-        <input id="updateAmount" type="number" placeholder="New Amount" />
+        <h3>Update Expense (Partial)</h3>
+        <input id="updateExpenseId" placeholder="Expense ID" required />
+        <input id="updateCategory" placeholder="Category (optional)" />
+        <input id="updateAmount" type="number" placeholder="Amount (optional)" />
         <input id="updateDate" type="date" />
-        <input id="updateExpenseUserId" placeholder="User ID" />
+        <input id="updateExpenseUserId" placeholder="User ID (optional)" />
         <button onclick="updateExpense()">Update</button>
+        <p class="hint">Leave fields empty to keep current values</p>
       </div>
 
       <!-- DELETE EXPENSE -->
@@ -103,4 +105,3 @@
   <script src="script.js"></script>
 </body>
 </html>
-

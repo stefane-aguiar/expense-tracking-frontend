@@ -34,16 +34,21 @@ async function createUser() {
   showResult(await res.json());
 }
 
-// UPDATE user
+// UPDATE user (PATCH - permite atualização parcial)
 async function updateUser() {
   const id = document.getElementById("updateUserId").value;
   const name = document.getElementById("updateUserName").value;
   const email = document.getElementById("updateUserEmail").value;
 
+  // Monta objeto apenas com campos preenchidos
+  const userData = {};
+  if (name) userData.name = name;
+  if (email) userData.email = email;
+
   const res = await fetch(`${baseUrl}/users/${id}`, {
-    method: "PUT",
+    method: "PATCH",  // ← MUDANÇA: PUT → PATCH
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ name, email }),
+    body: JSON.stringify(userData),
   });
 
   showResult(await res.json());
@@ -115,29 +120,30 @@ async function createExpense() {
   showResult(await res.json());
 }
 
-// UPDATE expense
+// UPDATE expense (PATCH - permite atualização parcial)
 async function updateExpense() {
   const id = document.getElementById("updateExpenseId").value;
   const category = document.getElementById("updateCategory").value;
-  const amount = parseFloat(document.getElementById("updateAmount").value);
+  const amount = document.getElementById("updateAmount").value;
   const rawDate = document.getElementById("updateDate").value;
   const userId = document.getElementById("updateExpenseUserId").value;
 
+  // Formata data se necessário
   let date = rawDate;
-  if (rawDate.includes("/")) {
+  if (rawDate && rawDate.includes("/")) {
     const parts = rawDate.split("/");
     date = `${parts[2]}-${parts[1]}-${parts[0]}`;
   }
 
-  const expenseData = {
-    category,
-    amount,
-    date,
-    user: { id: parseInt(userId) },
-  };
+  // Monta objeto apenas com campos preenchidos
+  const expenseData = {};
+  if (category) expenseData.category = category;
+  if (amount) expenseData.amount = parseFloat(amount);
+  if (date) expenseData.date = date;
+  if (userId) expenseData.user = { id: parseInt(userId) };
 
   const res = await fetch(`${baseUrl}/expenses/${id}`, {
-    method: "PUT",
+    method: "PATCH",  // ← MUDANÇA: PUT → PATCH
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(expenseData),
   });
@@ -159,5 +165,3 @@ async function deleteExpense() {
     showResult({ error: `Failed to delete expense with ID ${id}` });
   }
 }
-
-
