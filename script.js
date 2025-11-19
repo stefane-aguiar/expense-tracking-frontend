@@ -44,7 +44,7 @@ async function updateUser() {
   if (name) userData.name = name;
   if (email) userData.email = email;
 
-  const res = await fetch(`${baseUrl}/users/${id}`, {  // ← Parênteses AQUI
+  const res = await fetch(`${baseUrl}/users/${id}`, {
     method: "PATCH",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(userData),
@@ -139,7 +139,7 @@ async function updateExpense() {
   if (date) expenseData.date = date;
   if (userId) expenseData.user = { id: parseInt(userId) };
 
-  const res = await fetch(`${baseUrl}/expenses/${id}`, {  // ← Parênteses AQUI
+  const res = await fetch(`${baseUrl}/expenses/${id}`, {
     method: "PATCH",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(expenseData),
